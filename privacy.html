@@ -41,8 +41,8 @@
 <h2>1. Summary in plain language</h2>
 <ul>
   <li>Your vessel, voyage, survey and calculation data is stored locally by default.</li>
-  <li>The Windows test build offers an optional TrimCargo Cloud account. Nothing is uploaded automatically: only a vessel and voyage you explicitly choose to upload is sent to the cloud.</li>
-  <li>Android and iOS continue to use manual archive and Master CSV transfer until cloud access is expressly added to those releases.</li>
+  <li>The Windows and Android test builds offer an optional TrimCargo Cloud account. Nothing is uploaded automatically: only a vessel and voyage you explicitly choose to upload is sent to the cloud.</li>
+  <li>iOS continues to use manual archive and Master CSV transfer until cloud access is expressly added to that release.</li>
   <li>Google Play Billing or Apple In-App Purchase is contacted only to offer, confirm and restore the optional Pro unlock on that store platform.</li>
   <li>The App does <strong>not</strong> contain analytics, tracking, advertising or third-party SDKs that phone home.</li>
   <li>A cloud account is optional. Local survey work, manual archives and reports do not require sign-in.</li>
@@ -170,7 +170,7 @@
 </ul>
 <p>
   Cloud records remain until the account or records are deleted, subject to service backups and
-  legal/security retention. During the Windows test period, request permanent deletion of the
+  legal/security retention. During the Windows and Android test period, request permanent deletion of the
   cloud account and all associated cloud vessels, voyages, device registrations and version
   history by emailing <a href="mailto:alamdar_ali@outlook.com">alamdar_ali@outlook.com</a>
   from the account email address. We will verify the request before deletion. Deleting a cloud
@@ -183,6 +183,7 @@
   uses AES-256-GCM authenticated encryption for portable voyage archives. Optional
   biometric lock gates sensitive ship-management operations. On Windows, the cloud refresh
   token is encrypted for the current Windows user with Windows Data Protection API (DPAPI).
+  On Android, the session is encrypted using a non-exportable Android Keystore key.
   Cloud traffic uses HTTPS, the public client key grants no owner-wide access, and Supabase
   row-level security checks the signed-in user for every cloud record. No security model is
   perfect; please keep your device locked, your operating system up to date, and
@@ -207,8 +208,8 @@
 <h2>13. Changes to this Policy</h2>
 <p>
   This Policy now covers the optional account and manually controlled Cloud Workspace in the
-  Windows test build. Before account or cloud access is enabled in an Android or iOS store
-  release, the corresponding Google Play Data safety or Apple App Privacy declarations will
+  Windows and Android test builds. Before account or cloud access is enabled in an Android store
+  release or an iOS release, the corresponding Google Play Data safety or Apple App Privacy declarations will
   be reviewed and updated.
 </p>
 
