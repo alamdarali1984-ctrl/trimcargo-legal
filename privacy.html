@@ -40,18 +40,20 @@
 
 <h2>1. Summary in plain language</h2>
 <ul>
-  <li>Your vessel, voyage, survey and calculation data is stored <strong>only on your device</strong>.</li>
-  <li>The App does <strong>not</strong> upload, sync, share or sell your operational vessel data.</li>
+  <li>Your vessel, voyage, survey and calculation data is stored locally by default.</li>
+  <li>The Windows test build offers an optional TrimCargo Cloud account. Nothing is uploaded automatically: only a vessel and voyage you explicitly choose to upload is sent to the cloud.</li>
+  <li>Android and iOS continue to use manual archive and Master CSV transfer until cloud access is expressly added to those releases.</li>
   <li>Google Play Billing or Apple In-App Purchase is contacted only to offer, confirm and restore the optional Pro unlock on that store platform.</li>
   <li>The App does <strong>not</strong> contain analytics, tracking, advertising or third-party SDKs that phone home.</li>
-  <li>The current releases do <strong>not</strong> create a TrimCargo account or require sign-in. Optional cloud workspaces will not be activated until this policy and the store privacy declarations are updated.</li>
-  <li>You can delete every piece of data the App holds, at any time, from inside the App.</li>
+  <li>A cloud account is optional. Local survey work, manual archives and reports do not require sign-in.</li>
+  <li>TrimCargo source code, camera photos and reports are not uploaded to TrimCargo Cloud.</li>
 </ul>
 
 <h2>2. What data the App collects</h2>
 <p>
   The App collects only the data <strong>you</strong> enter or capture in order to perform
-  draft survey calculations. All of it stays on your device.
+  draft survey calculations. It stays on your device unless you sign in and explicitly
+  upload a selected vessel and voyage to TrimCargo Cloud.
 </p>
 <ul>
   <li><strong>Vessel information</strong> you type in (ship name, IMO, dimensions, hydrostatic tables, hatch data).</li>
@@ -60,14 +62,22 @@
   <li><strong>Voyage records</strong> you create (initial / running / trimming / final surveys, calculations, results).</li>
   <li><strong>App preferences</strong> (theme, units, biometric lock setting, archive folder location).</li>
   <li><strong>Access status</strong> (trial start/end, reviewer-access expiry, and whether Google Play or Apple has confirmed the Pro unlock).</li>
+  <li><strong>Optional cloud account data</strong> (email address, Supabase user identifier, registered-device identifier, platform, device display name, app version and last-seen time).</li>
+  <li><strong>Optional cloud workspace data</strong> (the selected vessel Master CSV, selected voyage archive JSON, revision number, update time and source-device identifier).</li>
 </ul>
 
 <h2>3. Where data is stored</h2>
 <p>
   All data is stored locally on your device, inside the App's private storage area
   (for example Android Room/DataStore, the iOS application container, or the Windows user profile). The operating system isolates this
-  area from other apps. We do not access this data in any way; it never leaves
-  your device unless you choose to export it.
+  area from other apps. Data leaves your device only when you choose an export/share action
+  or explicitly upload a vessel and voyage from Cloud Workspace.
+</p>
+<p>
+  Optional cloud account and workspace records are hosted for TrimCargo by Supabase in its
+  Oceania (Sydney, Australia) region. Supabase processes those records as our service provider
+  so the signed-in user can retrieve the same workspace on another supported TrimCargo device.
+  Row-level access rules restrict each record to its owning signed-in account.
 </p>
 
 <h2>4. Permissions used and why</h2>
@@ -136,7 +146,10 @@
 
 <h2>8. Data sharing</h2>
 <p>
-  We do not receive or share your vessel, voyage, survey, photo or calculation data.
+  We do not sell your personal or operational data. When you use the optional Cloud Workspace,
+  Supabase receives and stores the account, device, vessel and voyage fields described above
+  solely to provide authentication and cross-device workspace transfer. Supabase does not receive
+  TrimCargo source code, camera photos, manually exported files or PDF reports through this feature.
   Google Play or Apple processes Pro purchase transactions under its own terms and privacy
   policy. The App receives only the product identifier, purchase state and transaction token
   needed to grant, acknowledge and restore Pro access; it does not receive payment-card
@@ -155,12 +168,23 @@
   <li>Use Settings &rarr; Master data to reset master records.</li>
   <li>Uninstall the App &mdash; the operating system removes its private local storage, subject to backups you control.</li>
 </ul>
+<p>
+  Cloud records remain until the account or records are deleted, subject to service backups and
+  legal/security retention. During the Windows test period, request permanent deletion of the
+  cloud account and all associated cloud vessels, voyages, device registrations and version
+  history by emailing <a href="mailto:alamdar_ali@outlook.com">alamdar_ali@outlook.com</a>
+  from the account email address. We will verify the request before deletion. Deleting a cloud
+  account does not automatically delete local copies on your devices.
+</p>
 
 <h2>10. Security</h2>
 <p>
   The App relies on the operating system's application sandbox to isolate stored data from other apps and
   uses AES-256-GCM authenticated encryption for portable voyage archives. Optional
-  biometric lock gates sensitive ship-management operations. No security model is
+  biometric lock gates sensitive ship-management operations. On Windows, the cloud refresh
+  token is encrypted for the current Windows user with Windows Data Protection API (DPAPI).
+  Cloud traffic uses HTTPS, the public client key grants no owner-wide access, and Supabase
+  row-level security checks the signed-in user for every cloud record. No security model is
   perfect; please keep your device locked, your operating system up to date, and
   install apps only from trusted distribution sources.
 </p>
@@ -174,18 +198,18 @@
 
 <h2>12. Your rights</h2>
 <p>
-  Because the App does not transmit your data anywhere, there is no off-device copy
-  of your information for us to access, port, correct, or delete on your behalf.
-  All such control is provided to you directly inside the App. You may, of course,
-  contact us with any privacy questions at the address below.
+  You can inspect and change local operational records in the Apps and export them in the
+  supported portable formats. For an optional cloud account, you may request access,
+  correction, export or deletion by contacting us from the account email address. Applicable
+  privacy rights depend on your location.
 </p>
 
 <h2>13. Changes to this Policy</h2>
 <p>
-  Optional TrimCargo accounts and cloud workspaces are not active in the current releases.
-  Before they are enabled, this Policy and the Google Play Data safety and Apple App Privacy
-  declarations will be updated to explain account identifiers, registered devices, purchase
-  verification, operational cloud records, retention, security, and in-app account deletion.
+  This Policy now covers the optional account and manually controlled Cloud Workspace in the
+  Windows test build. Before account or cloud access is enabled in an Android or iOS store
+  release, the corresponding Google Play Data safety or Apple App Privacy declarations will
+  be reviewed and updated.
 </p>
 
 <h2>14. Contact</h2>
